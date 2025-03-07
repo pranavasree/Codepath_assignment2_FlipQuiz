@@ -1,0 +1,83 @@
+.config-container {
+  border-radius: 8px;
+  background-color: pink;
+  box-shadow: 0px 10px 25px rgba(220, 173, 173, 0.13);
+  width: 415px;
+  padding: 25px;
+  text-align: center;
+  display: block;
+}
+
+.config-container .config-title {
+  font-size: 1.31rem;
+}
+
+.config-container .config-options {
+  margin-top: 25px;
+}
+
+.config-options .option-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.config-options button {
+  padding: 12px;
+  font-size: 0.938rem;
+  font-weight: 500;
+  background-color: rgb(187, 234, 243);
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid rgb(120, 137, 131);
+  transition: 0.3s ease;
+}
+
+.config-options .category-options {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.config-options button:hover {
+  background-color: rgb(118, 137, 132);
+}
+
+.config-options button.active {
+  background-color: rgb(83, 181, 157);
+  border: rgb(85, 110, 101);
+  color: rgb(21, 29, 26);
+}
+
+.config-options .question-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.question-options button {
+  flex: 1 1 10%;
+}
+
+.config-container .start-quiz-btn {
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  background: rgb(85, 110, 108);
+  font-weight: 500;
+  padding: 13px 25px;
+  font-size: 1rem;
+  border-radius: 6px;
+  color: aliceblue;
+  transition: background 0.3s ease;
+}
+
+.config-container .start-quiz-btn {
+  margin-top: 30px;
+}
+
+.config-container .start-quiz-btn:hover {
+  background: rgb(71, 80, 77);
+}

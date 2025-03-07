@@ -1,0 +1,17 @@
+.main-container {
+  background-image: url("../assets/bg2.png"); /* Relative path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.main-container .quiz-qsns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

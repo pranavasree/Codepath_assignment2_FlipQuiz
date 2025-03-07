@@ -1,0 +1,44 @@
+.result-container {
+  text-align: center;
+  padding: 40px;
+  width: 410px;
+  display: block;
+  background-color: pink;
+  border-radius: 10px;
+}
+
+.result-container .result-img {
+  width: 110px;
+}
+
+.result-container .result-title {
+  margin-top: 30px;
+}
+
+.result-container .result-message {
+  font-size: 1.125rem;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.result-container .try-again-btn {
+  margin-top: 30px;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin-top: 30px;
+  background: rgb(180, 102, 115);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  color: rgb(23, 24, 24);
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.result-container .result-message b {
+  font-weight: 600;
+}
+
+.result-container .try-again-btn:hover {
+  background: rgb(191, 229, 216);
+}

@@ -1,0 +1,104 @@
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-header,
+.next-btn {
+  width: 400px;
+}
+
+.next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3px;
+  background-color: pink;
+  border-radius: 8px;
+}
+
+.quiz-content {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px; /* Enables the 3D flip effect */
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* .flip-card-front {
+  background-color: white;
+} */
+
+.flip-card-back {
+  /* background-color: lightblue; */
+  transform: rotateY(180deg);
+}
+
+.question-text,
+.answer-text,
+.status {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status {
+  margin-left: 30px;
+}
+
+/* Dynamic background colors based on category */
+.programming-bg {
+  background-color: #f1e4ae; /* Yellow for Programming */
+}
+
+.geography-bg {
+  background-color: #a6e9a9; /* Green for Geography */
+}
+
+.math-bg {
+  background-color: #7bacd4; /* Blue for Mathematics */
+}
+
+.entertainment-bg {
+  background-color: #bb3d67; /* Pink for Entertainment */
+}
+
+.default-bg {
+  background-color: #f5f5f5; /* Light Gray as fallback */
+}
+
+/* Question Image Styling */
+.question-image {
+  max-width: 50%;
+  max-height: 50px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}

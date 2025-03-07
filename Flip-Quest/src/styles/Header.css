@@ -1,0 +1,32 @@
+.header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 25px;
+  background-color: pink;
+  border-radius: 8px;
+  box-shadow: 0px 10px 25px rgba(220, 173, 173, 0.13);
+}
+
+.header-block .quiz-title {
+  font-size: 1.43rem;
+  font-weight: 700;
+}
+
+.header-block .quiz-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(169, 218, 235);
+  padding: 7px 9px;
+  font-weight: 500;
+  border-radius: 7px;
+  gap: 5px;
+  color: #090909;
+  width: 70px;
+  transition: 0.3s ease;
+}
+
+.header-block .quiz-timer span {
+  font-size: 1rem;
+}
