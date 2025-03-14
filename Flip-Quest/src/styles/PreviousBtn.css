@@ -1,7 +1,5 @@
+/* PreviousBtn.css */
 .quiz-footer {
-  padding: 15px 25px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   border-top: 1px solid #d1cfcf;
   background-color: pink;
@@ -9,7 +7,7 @@
   box-shadow: 0px 10px 25px rgba(220, 173, 173, 0.13);
 }
 
-.quiz-footer .next-qsn-btn {
+.quiz-footer .prev-qsn-btn {
   border: none;
   cursor: pointer;
   margin-top: 8px;
@@ -22,9 +20,10 @@
   transition: background 0.3s ease;
   display: flex;
   align-items: center;
+  margin-right: -75px;
 }
 
-.quiz-footer .next-qsn-btn:hover {
+.quiz-footer .prev-qsn-btn:hover {
   background: rgb(71, 80, 77);
 }
 

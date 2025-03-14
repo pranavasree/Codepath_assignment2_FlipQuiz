@@ -1,23 +1,30 @@
-import React from "react";
 import { useState } from "react";
 import "./styles/App.css";
 import ConfigCard from "./components/ConfigCard";
 import FlipCard from "./components/FlipCard";
 import ResultCard from "./components/ResultCard";
-import { getRandomQuestion } from "./data/questions"; // Import random question generator
+import { getRandomQuestion } from "./data/questions";
 
 const App = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showResult, setShowResult] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Programming"); // default category
+  const [selectedCategory, setSelectedCategory] = useState("Programming");
   const [numQuestions, setNumQuestions] = useState(5);
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+
+  // ✅ Streak Tracking
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
 
   const startQuiz = (selectedCategory, numQuestions) => {
     const questions = getRandomQuestion(selectedCategory, numQuestions);
     setQuizQuestions(questions);
     setCurrentQuestionIndex(0);
+    setCorrectCount(0);
+    setCurrentStreak(0); // Reset streaks
+    setLongestStreak(0);
     setShowQuiz(true);
     setShowResult(false);
   };
@@ -31,41 +38,68 @@ const App = () => {
     }
   };
 
-  // Reset state when "Try Again" button is clicked
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleShuffleQuestions = () => {
+    const shuffledQuestions = [...quizQuestions].sort(
+      () => Math.random() - 0.5
+    );
+    setQuizQuestions(shuffledQuestions);
+    setCurrentQuestionIndex(0);
+    setCorrectCount(0); // ✅ Reset correct answer count
+    setCurrentStreak(0); // ✅ Reset current streak
+  };
+
   const handleTryAgain = () => {
     setShowQuiz(false);
     setShowResult(false);
-    setSelectedCategory("Programming"); // Reset to default category
-    setNumQuestions(5); // Reset to default number of questions
+    setSelectedCategory("Programming");
+    setNumQuestions(5);
     setQuizQuestions([]);
     setCurrentQuestionIndex(0);
+    setCorrectCount(0);
+    setCurrentStreak(0);
+    setLongestStreak(0);
   };
 
   return (
     <div className="main-container">
-      <div className="quiz-config">
-        {!showQuiz && !showResult && (
-          <ConfigCard
-            startQuiz={startQuiz}
-            setSelectedCategory={setSelectedCategory}
-            setNumQuestions={setNumQuestions}
-          />
-        )}
-      </div>
+      {!showQuiz && !showResult && (
+        <ConfigCard
+          startQuiz={startQuiz}
+          setSelectedCategory={setSelectedCategory}
+          setNumQuestions={setNumQuestions}
+        />
+      )}
 
-      <div className="quiz-qsns">
-        {showQuiz && (
-          <FlipCard
-            numqsns={quizQuestions.length}
-            cuurIndex={currentQuestionIndex + 1}
-            question={quizQuestions[currentQuestionIndex]}
-            onNext={handleNextQuestion}
-            category={selectedCategory}
-          />
-        )}
-      </div>
+      {showQuiz && (
+        <FlipCard
+          numqsns={quizQuestions.length}
+          cuurIndex={currentQuestionIndex + 1}
+          question={quizQuestions[currentQuestionIndex]}
+          onNext={handleNextQuestion}
+          onPrevious={handlePreviousQuestion}
+          onShuffle={handleShuffleQuestions}
+          category={selectedCategory}
+          setCorrectCount={setCorrectCount}
+          currentStreak={currentStreak}
+          longestStreak={longestStreak}
+          setCurrentStreak={setCurrentStreak}
+          setLongestStreak={setLongestStreak}
+        />
+      )}
 
-      <div>{showResult && <ResultCard onTryAgain={handleTryAgain} />}</div>
+      {showResult && (
+        <ResultCard
+          correctCount={correctCount}
+          totalQuestions={numQuestions}
+          onTryAgain={handleTryAgain}
+        />
+      )}
     </div>
   );
 };

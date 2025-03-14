@@ -1,3 +1,4 @@
+/* ShuffleBtn.css */
 .quiz-footer {
   padding: 15px 25px;
   display: flex;
@@ -9,22 +10,23 @@
   box-shadow: 0px 10px 25px rgba(220, 173, 173, 0.13);
 }
 
-.quiz-footer .next-qsn-btn {
+.quiz-footer .shuffle-qsn-btn {
   border: none;
   cursor: pointer;
   margin-top: 8px;
   background: rgb(158, 120, 126);
   font-weight: 600;
-  padding: 8px 10px;
+  padding: 13px 20px;
   font-size: 1rem;
   border-radius: 6px;
   color: rgb(23, 24, 24);
   transition: background 0.3s ease;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-.quiz-footer .next-qsn-btn:hover {
+.quiz-footer .shuffle-qsn-btn:hover {
   background: rgb(71, 80, 77);
 }
 

@@ -2,30 +2,57 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  min-height: 400px;
+  min-height: 450px;
   align-items: center;
   justify-content: center;
 }
 
 .quiz-header,
-.next-btn {
+.navigation-btns {
   width: 400px;
 }
 
-.next-btn {
+.navigation-btns {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 3px;
   background-color: pink;
   border-radius: 8px;
+  padding: 8px;
+  width: 390px;
+  position: relative;
+}
+
+.navigation-btns .status {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: bold;
+}
+
+.navigation-btns .prev-next-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navigation-btns .prev-next-container button {
+  margin-left: 5px; /* Adds space between the buttons */
+}
+
+.navigation-btns .shuffle-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .quiz-content {
   width: 400px;
   height: 200px;
   position: relative;
-  perspective: 1000px; /* Enables the 3D flip effect */
+  perspective: 1000px;
 }
 
 .flip-card-inner {
@@ -47,52 +74,124 @@
   position: absolute;
   backface-visibility: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* .flip-card-front {
-  background-color: white;
-} */
-
 .flip-card-back {
-  /* background-color: lightblue; */
   transform: rotateY(180deg);
 }
 
 .question-text,
 .answer-text,
 .status {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
 }
 
 .status {
-  margin-left: 30px;
+  margin-left: -10px;
+  margin-top: 15px;
+}
+
+/* Streak Tracking Styles */
+.streak-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.streak {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.current-streak {
+  color: #ff9800; /* Orange for current streak */
+  font-size: 1rem;
+}
+
+.longest-streak {
+  color: #4caf50; /* Green for longest streak */
+  font-size: 1rem;
+}
+
+/* Answer Input */
+.answer-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.answer-box {
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.submit-btn {
+  padding: 8px 12px;
+  font-size: 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+/* Feedback messages */
+.feedback {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
 }
 
 /* Dynamic background colors based on category */
 .programming-bg {
-  background-color: #f1e4ae; /* Yellow for Programming */
+  background-color: #f1e4ae;
 }
 
 .geography-bg {
-  background-color: #a6e9a9; /* Green for Geography */
+  background-color: #a6e9a9;
 }
 
 .math-bg {
-  background-color: #7bacd4; /* Blue for Mathematics */
+  background-color: #7bacd4;
 }
 
 .entertainment-bg {
-  background-color: #bb3d67; /* Pink for Entertainment */
+  background-color: #bb3d67;
 }
 
 .default-bg {
-  background-color: #f5f5f5; /* Light Gray as fallback */
+  background-color: #f5f5f5;
 }
 
 /* Question Image Styling */
@@ -101,4 +200,28 @@
   max-height: 50px;
   border-radius: 8px;
   margin-bottom: 10px;
+}
+
+/* Disable Next & Previous buttons */
+.navigation-btns button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.prev-btn,
+.next-btn,
+.shuffle-btn {
+  padding: 5px 8px;
+  font-size: 0.9rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prev-btn:hover,
+.next-btn:hover,
+.shuffle-btn:hover {
+  background-color: #0056b3;
 }
